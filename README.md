@@ -18,3 +18,19 @@ A simple command-line DNS Resolver built using Python that performs forward and 
 - Python
 - Socket Programming
 - Basic Networking (DNS, TCP/IP)
+
+  ---
+
+##  Concepts Covered
+
+- DNS resolution process
+- Client-server communication
+- Socket programming
+- Exception handling
+
+---
+
+##  Purpose
+
+This project demonstrates practical understanding of how DNS translates domain names into IP addresses and how networking applications interact with system-level DNS services.
+
