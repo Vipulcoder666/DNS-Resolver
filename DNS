@@ -1,0 +1,50 @@
+import socket
+import time
+
+def forward_lookup(domain):
+    try:
+        start_time = time.time()
+        ip_address = socket.gethostbyname(domain)
+        end_time = time.time()
+
+        print("\n--- Forward DNS Lookup ---")
+        print(f"Domain Name : {domain}")
+        print(f"IP Address  : {ip_address}")
+        print(f"Response Time: {(end_time - start_time)*1000:.2f} ms")
+
+    except socket.gaierror:
+        print("\nInvalid domain name or unable to resolve.")
+
+def reverse_lookup(ip):
+    try:
+        start_time = time.time()
+        domain_name = socket.gethostbyaddr(ip)
+        end_time = time.time()
+
+        print("\n--- Reverse DNS Lookup ---")
+        print(f"IP Address   : {ip}")
+        print(f"Domain Name  : {domain_name[0]}")
+        print(f"Response Time: {(end_time - start_time)*1000:.2f} ms")
+
+    except socket.herror:
+        print("\nInvalid IP address or no reverse DNS record found.")
+
+def main():
+    print("===== DNS Resolver Tool =====")
+    print("1. Forward Lookup (Domain → IP)")
+    print("2. Reverse Lookup (IP → Domain)")
+    choice = input("Choose option (1/2): ")
+
+    if choice == "1":
+        domain = input("Enter domain name: ")
+        forward_lookup(domain)
+
+    elif choice == "2":
+        ip = input("Enter IP address: ")
+        reverse_lookup(ip)
+
+    else:
+        print("Invalid choice!")
+
+if __name__ == "__main__":
+    main()
